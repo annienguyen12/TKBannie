@@ -377,6 +377,122 @@ body.gaming{overflow:hidden}
 @keyframes breath{50%{transform:scaleY(1.025)}}
 @keyframes rollball{to{transform:translateX(-110px) rotate(-180deg)}}
 @media (max-width:430px){.pet{width:170px;margin-left:-85px}.room{height:210px}}
+
+/* family view */
+body.family .app,body.family .rem-fab,body.family .rem-panel,body.family .game{display:none}
+body.locked .fam{display:none}
+.lock-hint{font-size:16px;opacity:.75}
+.fam{max-width:760px;margin:0 auto;background:var(--page);color:var(--ink);border:4px solid var(--edge);box-shadow:var(--ext-l)}
+.fam-head{background:var(--accent);color:#3d3540;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.fam-head h1{margin:0;font:400 22px Silkscreen,VT323,monospace}
+.fam-head p{margin:4px 0 0;font-size:18px}
+.fam-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.fam h2{margin:0;font:400 14px Silkscreen,VT323,monospace;color:var(--accent-d)}
+.fam-q{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.fam-q label,.fam-len{display:flex;flex-direction:column;gap:4px;font-size:17px}
+.fam-len{flex-direction:row;align-items:center;gap:8px}
+.fam input,.fam select{font:inherit;font-size:18px;padding:6px 8px;border:2px solid color-mix(in srgb,var(--edge) 55%,var(--page));border-radius:0;background:var(--page);color:var(--ink);min-width:0}
+.fb{font:400 12px Silkscreen,VT323,monospace;border:0;background:var(--page);color:var(--ink);padding:9px 12px;cursor:pointer;box-shadow:var(--ext-s),var(--bevel)}
+.fam-head .fb{color:#3d3540;background:#fff}
+.fb:hover{background:var(--accent);color:#3d3540}
+.fb:active{transform:translate(3px,3px);box-shadow:var(--bevel)}
+.fam-res{padding:14px 16px;border:3px solid var(--edge);box-shadow:var(--ext-s);font-size:20px;background:var(--pink)}
+.fam-res.free{background:#c9f2dc;color:#254a38}
+.fam-res.busy{background:#ffd0d4;color:#5a2530}
+.fam-res .big{font:400 20px Silkscreen,VT323,monospace;margin-bottom:6px}
+.tl{position:relative;height:40px;border:2px solid var(--edge);background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/6.25% 100%}
+.blk{position:absolute;top:3px;bottom:3px;background:var(--c);box-shadow:2px 2px 0 rgba(0,0,0,.18)}
+.qry{position:absolute;top:-3px;bottom:-3px;border:3px solid var(--ink);background:color-mix(in srgb,var(--accent) 35%,transparent);z-index:2}
+.tl-l{position:relative;height:18px;font-size:16px;margin-top:-8px}
+.tl-l span{position:absolute;transform:translateX(-50%)}
+.fam-wins{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:430px){.fam-head{padding:12px}.fam-body{padding:14px 12px}.fam-head h1{font-size:18px}}
+#agenda{max-height:340px;overflow:auto;padding-right:4px}
+.evs select[data-f=who],.add #nw{width:78px;flex:none}
+
+/* family memo board */
+body.locked .memo{display:none}
+.fam-btns{display:flex;gap:8px;flex-wrap:wrap}
+.memo{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:12px;background:rgba(60,30,50,.5);overflow:auto}
+.mboard{width:min(860px,100%);max-height:calc(100vh - 24px);overflow:auto;background:var(--page);color:var(--ink);border:4px solid var(--edge);box-shadow:var(--ext-l)}
+.mtop{background:var(--accent);color:#3d3540;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mtop h2{margin:0;font:400 18px Silkscreen,VT323,monospace;flex:1}
+.mtop .fb{background:#fff;color:#3d3540}
+.mform{padding:12px 16px;display:flex;flex-direction:column;gap:10px;border-bottom:3px solid var(--edge);background:var(--pink)}
+.mform textarea{font:inherit;font-size:20px;min-height:70px;resize:vertical;border:2px solid var(--edge);border-radius:0;padding:8px;background:var(--page);color:var(--ink)}
+.mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:18px}
+.tg,.sw{position:relative;display:inline-flex;margin-right:6px}
+.tg input,.sw input{position:absolute;opacity:0;pointer-events:none}
+.tg span{padding:4px 10px;border:2px solid var(--edge);background:var(--page);cursor:pointer;font-size:18px;box-shadow:2px 2px 0 var(--edge)}
+.tg input:checked+span{background:var(--accent);color:#3d3540;transform:translate(2px,2px);box-shadow:none}
+.tg input:focus-visible+span,.sw input:focus-visible+i{outline:3px solid var(--today)}
+.sw i{width:26px;height:26px;border:2px solid var(--edge);display:block;cursor:pointer}
+.sw input:checked+i{outline:3px solid var(--ink);outline-offset:1px}
+.cork{position:relative;padding:28px 22px 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:28px 20px;background:conic-gradient(#e0bd96 25%,#d6b088 0 50%,#e0bd96 0 75%,#d6b088 0) 0 0/40px 40px;min-height:260px;border-top:4px solid var(--edge);border-bottom:4px solid var(--edge)}
+.nt{position:relative;background:var(--nc);color:#3d3540;padding:16px 12px 10px;transform:rotate(var(--r));box-shadow:4px 5px 0 rgba(0,0,0,.2);display:flex;flex-direction:column;gap:6px;min-height:150px}
+.nt::before{content:'📌';position:absolute;top:-14px;left:50%;margin-left:-10px;font-size:20px}
+.nt-h{display:flex;flex-direction:column;font-size:17px;line-height:1.05}
+.nt-h span{opacity:.75}
+.nt p{margin:0;font-size:22px;line-height:1.05;flex:1;white-space:pre-wrap;word-break:break-word}
+.nt-f{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;font-size:15px}
+.nt .dn,.nt .x{font:400 11px Silkscreen,VT323,monospace;border:0;background:#fff;color:#3d3540;padding:6px 8px;cursor:pointer;box-shadow:2px 2px 0 var(--edge)}
+.nt .dn:hover{background:var(--accent)}
+.nt .dn:active,.nt .x:active{transform:translate(2px,2px);box-shadow:none}
+.nt.drop{animation:stick .5s cubic-bezier(.3,1.4,.5,1)}
+.nt.half{position:absolute;margin:0;pointer-events:none;z-index:5}
+.nt.half.tl{clip-path:polygon(0 0,58% 0,44% 22%,56% 45%,42% 70%,54% 100%,0 100%);animation:tearL .9s ease-in forwards}
+.nt.half.tr{clip-path:polygon(58% 0,100% 0,100% 100%,54% 100%,42% 70%,56% 45%,44% 22%);animation:tearR .9s ease-in forwards}
+@keyframes tearL{20%{transform:rotate(calc(var(--r) - 5deg)) translate(-6px,0)}100%{transform:rotate(calc(var(--r) - 26deg)) translate(-50px,480px);opacity:0}}
+@keyframes tearR{20%{transform:rotate(calc(var(--r) + 5deg)) translate(6px,0)}100%{transform:rotate(calc(var(--r) + 28deg)) translate(50px,480px);opacity:0}}
+@keyframes stick{from{transform:translateY(-70px) scale(1.5) rotate(0);opacity:0}}
+.mmsg{min-height:1.4em;padding:4px 16px;font-size:18px;color:var(--accent-d)}
+.mdone{padding:8px 16px 14px;font-size:18px}
+.mdone summary{cursor:pointer;font:400 12px Silkscreen,VT323,monospace}
+.dn-row{display:flex;gap:8px;align-items:center;padding:4px 0;border-bottom:1px dashed var(--line)}
+.dn-row s{flex:1}
+.dn-row small{opacity:.7}
+.dn-row button{font:inherit;background:none;border:0;cursor:pointer;color:var(--ink);font-size:20px}
+.empty-c{grid-column:1/-1;text-align:center;font-size:20px;color:#5a4650}
+@media (max-width:430px){.cork{grid-template-columns:1fr 1fr;padding:24px 12px;gap:26px 14px}.nt p{font-size:20px}}
+
+/* ColorSpin */
+body.locked .cs{display:none}
+.cs{position:fixed;inset:0;z-index:65;display:grid;place-items:center;padding:12px;background:rgba(60,30,50,.5);overflow:auto}
+.cspod{width:min(440px,100%);background:var(--accent);color:#3d3540;border:4px solid var(--edge);box-shadow:var(--ext-l);padding:12px;display:flex;flex-direction:column;gap:10px}
+.cstop{display:flex;align-items:center;gap:10px;font:400 14px Silkscreen,VT323,monospace}
+.cstop span{flex:1;font:400 19px VT323,monospace;text-align:right}
+.cstop .fb,.cspod>.fb,.cschoices .fb{background:#fff;color:#3d3540}
+.csscene{position:relative;height:330px;perspective:800px;display:grid;place-items:center;overflow:hidden;border:4px solid var(--edge);background:linear-gradient(#bfe6ff,#fdeef3)}
+.csscene.shake{animation:shake .35s}
+.csmsg{position:absolute;top:8px;left:0;right:0;text-align:center;font-size:20px;color:#3d3540;z-index:5;pointer-events:none}
+.csboard{position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.1,.5,1)}
+.tile{position:absolute;transform-style:preserve-3d}
+.tile i{position:absolute;display:block;background:var(--c)}
+.tile .top{left:0;top:0;width:100%;height:100%;transform:translateZ(var(--h));box-shadow:inset 0 0 0 2px rgba(0,0,0,.18);display:grid;place-items:center;font-style:normal;font-size:calc(var(--s) * .5);line-height:1;color:rgba(0,0,0,.35)}
+.tile .sf,.tile .sb,.tile .sr,.tile .sl{background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),var(--c);transform-origin:0 0}
+.tile .sf{left:0;top:100%;width:100%;height:var(--h);transform:translateZ(var(--h)) rotateX(-90deg)}
+.tile .sb{left:0;top:0;width:100%;height:var(--h);transform:translateZ(var(--h)) rotateX(-90deg)}
+.tile .sr{left:100%;top:0;width:var(--h);height:100%;transform:translateZ(var(--h)) rotateY(90deg)}
+.tile .sl{left:0;top:0;width:var(--h);height:100%;transform:translateZ(var(--h)) rotateY(90deg)}
+.tile.next .top{animation:csglow .7s ease-in-out infinite alternate}
+@keyframes csglow{from{box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 6px rgba(0,0,0,.4)}to{box-shadow:inset 0 0 0 6px #fff,inset 0 0 0 9px rgba(0,0,0,.4)}}
+.hero{position:absolute;transform-origin:50% 100%;transition:left .45s ease,top .45s ease,transform .7s cubic-bezier(.3,1.1,.5,1);pointer-events:none}
+.hero.hopping .hop{animation:cshop .45s ease-out}
+@keyframes cshop{50%{transform:translateY(-46px)}}
+.hero svg{display:block;width:100%;overflow:visible;shape-rendering:crispEdges;filter:drop-shadow(2px 0 0 #5a4650) drop-shadow(-2px 0 0 #5a4650) drop-shadow(0 2px 0 #5a4650) drop-shadow(0 -2px 0 #5a4650)}
+.hero .tail{transform-box:fill-box;transform-origin:0 100%;animation:tail 1.6s ease-in-out infinite alternate}
+.hero .eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+.hero .eyes-closed,.hero .m-sad,.hero .m-open,.hero .dirt,.hero .sweat{display:none}
+.hero.hopping .eyes-open{display:none}
+.hero.hopping .eyes-closed{display:block}
+.hero.bad .m-smile{display:none}
+.hero.bad .m-sad{display:block}
+.cschoices{display:flex;gap:14px;justify-content:center;min-height:84px;align-items:center}
+.cb{width:76px;height:76px;border:0;background:var(--c);box-shadow:var(--ext-m),var(--bevel);cursor:pointer;font-size:34px;line-height:1;color:rgba(0,0,0,.4);transition:transform .1s}
+.cb:hover{transform:translate(-2px,-2px)}
+.cb:active{transform:translate(4px,4px);box-shadow:var(--bevel)}
+.csbar{display:flex;justify-content:space-between;font-size:20px}
+@media (max-width:430px){.csscene{height:300px}.cb{width:68px;height:68px}}
 @keyframes tail{from{transform:rotate(-10deg)}to{transform:rotate(14deg)}}
 @keyframes bob{50%{transform:translateY(1.5px) rotate(1.5deg)}}
 @keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
@@ -398,6 +514,8 @@ body.gaming{overflow:hidden}
           <button id="today">Today ♥</button>
           <button id="next" aria-label="Next month">&rsaquo;</button>
           <button id="lockNow" aria-label="Lock timetable">🔒</button>
+          <button id="boardBtn" aria-label="Family memo board" title="Family memo board">📌</button>
+          <button id="csBtn" aria-label="Play ColorSpin" title="ColorSpin game">🎨</button>
         </div>
       </div>
       <div class="clock">Clock: <b id="clock">--:--:--</b><br>Date: <b id="date"></b></div>
@@ -436,6 +554,58 @@ body.gaming{overflow:hidden}
   </aside>
 </main>
 
+<div class='cs' id='cs' hidden role='dialog' aria-label='ColorSpin game'>
+  <div class='cspod'>
+    <div class='cstop'><b>🎨 ColorSpin</b><span id='csInfo'></span><button class='fb' id='csClose' aria-label='Close game'>&times;</button></div>
+    <div class='csscene' id='csScene'><div class='csmsg' id='csMsg'></div><div class='csboard' id='csBoard'></div></div>
+    <div class='cschoices' id='csChoices'></div>
+    <div class='csbar'><span id='csScore'>Score 0</span><span id='csStreak'></span><span id='csBest'></span></div>
+    <button class='fb' id='csNew'>New game</button>
+  </div>
+</div>
+<div class='memo' id='memo' hidden role='dialog' aria-label='Family memo board'>
+  <div class='mboard'>
+    <div class='mtop'>
+      <h2>📌 Family Memo Board</h2>
+      <button class='fb' id='mNew'>+ New note</button>
+      <button class='fb' id='mClose' aria-label='Close board'>&times;</button>
+    </div>
+    <form class='mform' id='mForm' hidden>
+      <textarea id='mText' maxlength='160' placeholder='Write a note...' aria-label='Note text'></textarea>
+      <div class='mrow'><span>Tag:</span><span id='mTags'></span></div>
+      <div class='mrow'><span>Color:</span><span id='mColors'></span></div>
+      <div class='mrow'><button type='submit' class='fb'>Stick it 📌</button><button type='button' class='fb' id='mCancel'>Cancel</button></div>
+      <div class='lock-err' id='mErr' role='alert'></div>
+    </form>
+    <div class='mmsg' id='mMsg' role='status'></div>
+    <div class='cork' id='cork'></div>
+    <details class='mdone'><summary id='mDoneSum'>Completed</summary><div id='mDone'></div></details>
+  </div>
+</div>
+<section class='fam' id='fam' aria-label='Family view'>
+  <header class='fam-head'>
+    <div><h1>♥ Family View</h1><p id='famHi'></p></div>
+    <div class='fam-btns'><button class='fb' id='famBoard' hidden>📌 Family Board</button><button class='fb' id='famOut'>🔒 Log out</button></div>
+  </header>
+  <div class='fam-body'>
+    <h2 id='agTitle'>Your schedule</h2>
+    <div id='agenda'></div>
+    <h2>Is Annie free?</h2>
+    <div class='fam-q'>
+      <label>Date<input type='date' id='fDate'></label>
+      <label>From<input type='time' id='fFrom' value='09:00'></label>
+      <label>To<input type='time' id='fTo' value='10:00'></label>
+      <button class='fb' id='fNow'>Today</button>
+    </div>
+    <div class='fam-res' id='fRes' role='status'></div>
+    <h2>Annie's day</h2>
+    <div class='tl' id='fTl'></div><div class='tl-l' id='fTlL'></div>
+    <div id='fList'></div>
+    <h2>Free time that day</h2>
+    <label class='fam-len'>At least <select id='fLen'><option value='30'>30 min</option><option value='60'>1 hour</option><option value='90'>1.5 hours</option><option value='120'>2 hours</option></select></label>
+    <div class='fam-wins' id='fWins'></div>
+  </div>
+</section>
 <div class='game' id='game' hidden role='dialog' aria-label='Raise your cat'>
   <div class='pod'>
     <div class='pod-top'>
@@ -505,11 +675,11 @@ body.gaming{overflow:hidden}
     <div class='lock-icon'>🔒</div>
     <h2 id='lockTitle'>Welcome back ♥</h2>
     <p id='lockMsg'>Enter your password to open your timetable.</p>
+    <input type='text' id='un' autocomplete='username' autocapitalize='none' autocorrect='off' spellcheck='false' placeholder='Username' aria-label='Username'>
     <input type='password' id='pw1' autocomplete='current-password' placeholder='Password' aria-label='Password'>
-    <input type='password' id='pw2' autocomplete='new-password' placeholder='Confirm password' aria-label='Confirm password' hidden>
     <div class='lock-err' id='lockErr' role='alert'></div>
     <button type='submit' id='lockBtn'>Unlock</button>
-    <button type='button' class='lock-link' id='forgot'>Forgot password?</button>
+    <span class='lock-hint'>Family: log in to see when Annie is free ♥</span>
   </form>
 </div>
 <button class='rem-fab' id='remFab' aria-label='Reminders for the next 3 days'>💌<span class='badge' id='badge' hidden>0</span></button>
@@ -521,7 +691,7 @@ body.gaming{overflow:hidden}
 
 <script>
 const $ = s => document.querySelector(s);
-let locked = true;
+let locked = true, viewer = 'none', cur = '';
 const pad = n => String(n).padStart(2, '0');
 const key = (y, m, d) => `${y}-${pad(m + 1)}-${pad(d)}`;
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -602,6 +772,7 @@ function fill() {
         <input type="time" data-f="end" value="${esc(e.end || '')}" aria-label="End time">
         <input class="t" data-f="title" value="${esc(e.title)}" aria-label="Title" placeholder="Title">
         <select data-f="kind" aria-label="Category">${kindOpts(kd(e))}</select>
+        <select data-f="who" aria-label="Related person">${whoOpts(e.who)}</select>
         <button class="del" aria-label="Delete">&times;</button>
       </li>`).join('')}</ul>
     ${evs.length ? '' : '<p class="empty">Nothing planned. Add a class or event below.</p>'}
@@ -611,6 +782,7 @@ function fill() {
       <input type="time" id="ne" value="09:00" aria-label="New end time">
       <input class="ti" id="nti" placeholder="Class or event" aria-label="New title">
       <select id="nk" aria-label="Category">${kindOpts('Class')}</select>
+      <select id="nw" aria-label="Related person">${whoOpts('')}</select>
       <button id="addb">Add</button>
     </div>
   </div>
@@ -620,7 +792,7 @@ function fill() {
 function addEvent() {
   const title = $('#nti').value.trim();
   if (!title) { $('#nti').focus(); return; }
-  (data.events[sel] = data.events[sel] || []).push({ start: $('#nt').value || '00:00', end: $('#ne').value, title, kind: $('#nk').value });
+  (data.events[sel] = data.events[sel] || []).push({ start: $('#nt').value || '00:00', end: $('#ne').value, title, kind: $('#nk').value, who: $('#nw').value });
   save(); fill(); renderCal(); burst($('#addb')); $('#nti').focus();
 }
 letter.addEventListener('click', e => {
@@ -634,7 +806,7 @@ letter.addEventListener('input', e => {
   const f = e.target.dataset.f; if (!f) return;
   if (f === 'subject') data.subjects[sel] = e.target.value;
   else if (f === 'note') data.notes[sel] = e.target.value;
-  else { const i = +e.target.closest('li').dataset.i; data.events[sel][i][f] = e.target.value; if (f === 'kind') e.target.closest('li').className = e.target.value; }
+  else { const i = +e.target.closest('li').dataset.i; data.events[sel][i][f] = e.target.value; if (f === 'kind') e.target.closest('li').className = e.target.value; if (f === 'who') delete data.events[sel][i].act; }
   save(); renderCal();
 });
 letter.addEventListener('change', e => { if (e.target.dataset.f === 'start') { fill(); } });
@@ -721,7 +893,7 @@ function greet() {
 ['pointerdown', 'keydown'].forEach(ev => addEventListener(ev, greet, { once: true }));
 const alerted = new Set();
 function checkSoon() {
-  if (locked) return;
+  if (locked || viewer !== 'me') return;
   const d = new Date(), k = key(d.getFullYear(), d.getMonth(), d.getDate()), mins = d.getHours() * 60 + d.getMinutes();
   (data.events[k] || []).forEach((e, i) => {
     const s = st(e); if (!s) return;
@@ -744,55 +916,100 @@ $('#cat svg').outerHTML = `<svg viewBox='0 0 110 90' aria-hidden='true'>
 <rect x='45' y='43' width='10' height='5' fill='#ff6fa5'/><rect x='40' y='48' width='5' height='2' fill='#4a3640'/><rect x='55' y='48' width='5' height='2' fill='#4a3640'/>
 </g>
 <g class='paws' fill='#fff4e6'><rect x='30' y='78' width='15' height='8'/><rect x='55' y='78' width='15' height='8'/></g></svg>`;
-/* password lock (a privacy screen: the password is kept only as a salted hash on this device) */
-const PW_KEY = 'timetable-pw';
+/* accounts: passwords are kept only as salted SHA-256 hashes */
+const ACCOUNTS = {
+  dad: { label: 'Dad', role: 'family', hash: '9a417b2783967bcc6f38a60a993e48001f183f1c84696e75116b0e57199822ea' },
+  mom: { label: 'Mom', role: 'family', hash: '26b1dff1041a043633ab39c25ccab59a9dc03f519b1c7a5d22e47f0370c5abc3' },
+  teacher: { label: 'Teacher', role: 'family', hash: 'be0b1a6198bea16455d063bfd1f915a3892ebfe42770372420431c2fa60a6c07' },
+  annie: { label: 'Annie', role: 'me', hash: '6ed5ba4c6cb75692582ce0f2628cb5a28bcfbad5c4602a522b088f92bff6adee' }
+};
 const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
-async function hashPw(pw, salt) {
-  try { return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt + ':' + pw))); }
-  catch (e) { let h = 5381; for (const c of salt + ':' + pw) h = ((h * 33) ^ c.charCodeAt(0)) >>> 0; return 'x' + h; }
-}
-let stored = null; try { stored = JSON.parse(localStorage.getItem(PW_KEY)); } catch (e) {}
+async function hashPw(u, pw) { return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('tt-' + u + ':' + pw))); }
+const todayKey = () => { const d = new Date(); return key(d.getFullYear(), d.getMonth(), d.getDate()); };
 function showLock() {
-  const setup = !stored;
-  $('#lockTitle').textContent = setup ? 'Create a password' : 'Welcome back ♥';
-  $('#lockMsg').textContent = setup ? 'Choose a password (4+ characters). You will enter it every time you open the timetable.' : 'Enter your password to open your timetable.';
-  $('#pw2').hidden = !setup; $('#forgot').hidden = setup;
-  $('#lockBtn').textContent = setup ? 'Set password' : 'Unlock';
-  $('#pw1').autocomplete = setup ? 'new-password' : 'current-password';
-  $('#pw1').value = $('#pw2').value = ''; $('#lockErr').textContent = '';
-  $('#lock').hidden = false; document.body.classList.add('locked'); locked = true; closeGame();
-  setTimeout(() => $('#pw1').focus(), 50);
+  $('#lockTitle').textContent = 'Welcome ♥';
+  $('#lockMsg').textContent = 'Log in to continue.';
+  $('#lockBtn').textContent = 'Log in';
+  $('#un').value = ''; $('#pw1').value = ''; $('#lockErr').textContent = '';
+  $('#lock').hidden = false; document.body.classList.add('locked'); locked = true; viewer = 'none'; closeGame(); closeBoard(); closeCs();
+  setTimeout(() => $('#un').focus(), 50);
 }
-function unlock() {
+function unlock(u) {
+  const a = ACCOUNTS[u]; viewer = a.role; cur = u; $('#famBoard').hidden = !MEMBERS.includes(u); updateBoardBadge();
   $('#lock').hidden = true; document.body.classList.remove('locked'); locked = false;
-  greeted = false; greet();
+  document.body.classList.toggle('family', viewer === 'family');
+  if (viewer === 'me') { greeted = false; renderCal(); renderRem(); greet(); }
+  else {
+    try { const s = JSON.parse(localStorage.getItem('timetable-v1')); if (s && s.events) data = s; } catch (x) {}
+    $('#famHi').textContent = 'Hello, ' + a.label + '! You can see when Annie is busy or free, but not her event details.'; renderAgenda();
+    $('#fDate').value = todayKey(); renderFam();
+  }
+  window.scrollTo(0, 0);
 }
 $('#lockForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const pw = $('#pw1').value;
+  const u = $('#un').value.trim().toLowerCase(), pw = $('#pw1').value, a = ACCOUNTS[u];
   const err = m => { $('#lockErr').textContent = m; const c = $('#lockForm'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); };
-  if (!stored) {
-    if (pw.length < 4) return err('Use at least 4 characters.');
-    if (pw !== $('#pw2').value) return err('Passwords do not match.');
-    const salt = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
-    stored = { salt, hash: await hashPw(pw, salt) };
-    try { localStorage.setItem(PW_KEY, JSON.stringify(stored)); } catch (x) {}
-    return unlock();
-  }
-  if (await hashPw(pw, stored.salt) !== stored.hash) { $('#pw1').select(); return err('Wrong password, try again.'); }
-  unlock();
+  let good = false;
+  try { good = !!a && await hashPw(u, pw) === a.hash; } catch (x) { return err('This browser cannot check passwords.'); }
+  if (!good) { $('#pw1').select(); return err('Wrong username or password.'); }
+  unlock(u);
 });
-let armed = false;
-$('#forgot').onclick = () => {
-  const b = $('#forgot');
-  if (!armed) { armed = true; b.textContent = 'Tap again: this erases all saved data'; setTimeout(() => { armed = false; b.textContent = 'Forgot password?'; }, 4000); return; }
-  armed = false; b.textContent = 'Forgot password?';
-  try { localStorage.removeItem(PW_KEY); localStorage.removeItem('timetable-v1'); } catch (x) {}
-  data = { events: {}, notes: {}, subjects: {} }; stored = null; renderCal(); renderRem(); showLock();
-};
 $('#lockNow').onclick = () => {
   $('#remPanel').hidden = true; sel = null; letter.classList.remove('out'); $('#hint').style.display = ''; renderCal(); showLock();
 };
+
+/* family view: is Annie free? */
+const toMin = t => { if (!t) return null; const [h, m] = String(t).split(':').map(Number); return isNaN(h) ? null : h * 60 + (m || 0); };
+const fmt = m => pad(Math.floor(m / 60)) + ':' + pad(m % 60);
+const pct = m => Math.max(0, Math.min(100, (m - 360) / 960 * 100));
+function busyOn(k) {
+  return (data.events[k] || []).map(v => {
+    const s = toMin(st(v)); if (s === null) return null;
+    let en = toMin(v.end); if (en === null || en <= s) en = s + 60;
+    return { s, e: Math.min(en, 1440), kind: kd(v) };
+  }).filter(Boolean).sort((a, b) => a.s - b.s);
+}
+function freeWins(b, lo = 420, hi = 1320) {
+  const out = []; let c = lo;
+  b.forEach(x => { if (x.s > c) out.push([c, Math.min(x.s, hi)]); c = Math.max(c, x.e); });
+  if (c < hi) out.push([c, hi]);
+  return out.filter(w => w[1] > w[0]);
+}
+function renderFam() {
+  const k = $('#fDate').value, qs = toMin($('#fFrom').value), qe = toMin($('#fTo').value), res = $('#fRes');
+  const busy = k ? busyOn(k) : [], wins = freeWins(busy), ok = !!k && qs !== null && qe !== null && qe > qs;
+  const [y, mo, d] = (k || '').split('-').map(Number);
+  const label = k ? new Date(y, mo - 1, d).toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' }) : '';
+  if (!ok) { res.className = 'fam-res'; res.textContent = k ? 'Choose a start time and a later end time.' : 'Pick a date and a time range.'; }
+  else {
+    const hit = busy.filter(b => b.s < qe && b.e > qs), len = qe - qs;
+    if (!hit.length) { res.className = 'fam-res free'; res.innerHTML = `<div class='big'>😺 Annie is FREE</div>${label}, ${fmt(qs)}–${fmt(qe)}`; }
+    else {
+      const nx = wins.map(w => [Math.max(w[0], qs), w[1]]).find(w => w[1] - w[0] >= len);
+      res.className = 'fam-res busy';
+      res.innerHTML = `<div class='big'>😿 Annie is BUSY</div>${hit.map(b => `${KINDS[b.kind]} ${fmt(b.s)}–${fmt(b.e)}`).join('<br>')}<div style='margin-top:6px'>${nx ? `Next free slot: ${fmt(nx[0])}–${fmt(Math.min(nx[1], nx[0] + len))}` : 'No free slot of that length later that day.'}</div>`;
+    }
+  }
+  $('#fTl').innerHTML = busy.filter(b => b.e > 360 && b.s < 1320).map(b => `<i class='blk ${b.kind}' style='left:${pct(b.s)}%;width:${pct(b.e) - pct(b.s)}%'></i>`).join('') + (ok ? `<i class='qry' style='left:${pct(qs)}%;width:${Math.max(pct(qe) - pct(qs), 1)}%'></i>` : '');
+  $('#fTlL').innerHTML = [6, 9, 12, 15, 18, 21].map(h => `<span style='left:${(h - 6) / 16 * 100}%'>${h}</span>`).join('');
+  $('#fList').innerHTML = busy.length ? busy.map(b => `<div class='rem-item ${b.kind}'><b>${fmt(b.s)}–${fmt(b.e)}</b><span>Busy</span><span class='pill'>${KINDS[b.kind]}</span></div>`).join('') : `<p class='empty'>Nothing planned. Annie is free all day ♥</p>`;
+  const good = wins.filter(w => w[1] - w[0] >= +$('#fLen').value);
+  $('#fWins').innerHTML = good.length ? good.map(w => `<button class='fb' data-s='${w[0]}' data-e='${w[1]}'>${fmt(w[0])}–${fmt(w[1])}</button>`).join('') : `<p class='empty'>No free time that long between 07:00 and 22:00.</p>`;
+}
+['#fDate', '#fFrom', '#fTo', '#fLen'].forEach(s => $(s).addEventListener('input', renderFam));
+$('#fWins').addEventListener('click', e => {
+  const b = e.target.closest('[data-s]'); if (!b) return;
+  const s = +b.dataset.s, en = +b.dataset.e, qs = toMin($('#fFrom').value), qe = toMin($('#fTo').value);
+  const len = qs !== null && qe !== null && qe > qs ? qe - qs : 60;
+  $('#fFrom').value = fmt(s); $('#fTo').value = fmt(Math.min(en, s + len)); renderFam();
+});
+$('#fNow').onclick = () => { $('#fDate').value = todayKey(); renderFam(); };
+$('#famOut').onclick = showLock;
+addEventListener('storage', e => {
+  if (e.key !== 'timetable-v1' || viewer !== 'family') return;
+  try { const s = JSON.parse(e.newValue); if (s && s.events) { data = s; renderFam(); renderAgenda(); } } catch (x) {}
+});
 /* ===== tamagotchi: British Shorthair kitten ===== */
 const PET_KEY = 'timetable-pet-v1';
 const defPet = () => ({ name: 'Mochi', hunger: 80, happy: 80, clean: 80, energy: 80, health: 100, xp: 0, born: Date.now(), last: Date.now(), sleeping: false });
@@ -901,6 +1118,291 @@ $('#gReset').onclick = () => {
 };
 /* mailbox cat becomes grey and white too */
 { const s = $('#cat svg'); s.innerHTML = s.innerHTML.replaceAll('#ffd2a8', '#a4adb8').replaceAll('#f0b684', '#8892a0').replaceAll('#ffe6cf', '#c3ccd6').replaceAll('#f0a867', '#8892a0').replaceAll('#fff4e6', '#ffffff'); }
+/* weekly timetable, related people, and schedules for Dad / Mom / Teacher */
+const WHO = { dad: 'Dad', mom: 'Mom', teacher: 'Teacher' };
+const whoOpts = v => `<option value=''${v ? '' : ' selected'}>No one</option>` + Object.keys(WHO).map(k => `<option value='${k}'${k === v ? ' selected' : ''}>${WHO[k]}</option>`).join('');
+/* getDay(): 1=Mon ... 6=Sat, 0=Sun. [start, end, title, category, related person, what that person does] */
+const WEEK = {
+  1: [['17:30', '19:30', 'Học thêm Toán', 'Extra', 'teacher', 'Teach the Math tutoring session'], ['19:55', '23:00', 'Học DGNL', 'Exam', 'mom', 'Check in on DGNL practice and bring a snack']],
+  2: [['15:45', '17:00', 'Học thêm Lý', 'Extra', 'teacher', 'Teach the Physics tutoring session'], ['21:30', '23:00', 'Học DGNL / Sửa bài Toán', 'Exam', 'dad', 'Help review the Math corrections']],
+  3: [['17:30', '19:30', 'Học thêm Toán', 'Extra', 'teacher', 'Teach the Math tutoring session'], ['21:30', '23:00', 'Học DGNL', 'Exam', 'mom', 'Check in on DGNL practice and bring a snack']],
+  4: [['15:45', '17:00', 'Học thêm Lý', 'Extra', 'teacher', 'Teach the Physics tutoring session'], ['21:30', '23:00', 'Học DGNL / Sửa bài Toán', 'Exam', 'dad', 'Help review the Math corrections']],
+  5: [['15:30', '17:00', 'Học Logiscool', 'Extra', 'dad', 'Drive Annie to Logiscool and pick her up'], ['19:55', '23:00', 'Học DGNL', 'Exam', 'mom', 'Check in on DGNL practice and bring a snack']],
+  6: [['16:30', '20:00', 'Học Ielts', 'Extra', 'teacher', 'Teach the IELTS class']],
+  0: [['18:00', '20:00', 'Học Ielts', 'Extra', 'dad', 'Pick Annie up after IELTS']]
+};
+const POOL = {
+  dad: [['Work meeting', '09:00', '10:30', 'Extra'], ['Project review', '14:00', '15:30', 'Extra'], ['Gym', '06:30', '07:30', 'Family'], ['Client call', '11:00', '12:00', 'Extra'], ['Team lunch', '12:00', '13:30', 'Friends'], ['Car service', '08:00', '09:00', 'Family'], ['Grocery shopping', '18:00', '19:00', 'Family'], ['Badminton with friends', '19:30', '21:00', 'Friends'], ['Pay the bills', '20:00', '20:30', 'Family'], ['Online course', '20:30', '21:30', 'Extra'], ['Weekend cycling', '07:00', '09:00', 'Friends'], ['Call grandparents', '19:00', '19:30', 'Family'], ['Plan the business trip', '16:00', '17:30', 'Extra']],
+  mom: [['Yoga class', '06:00', '07:00', 'Family'], ['Morning market', '07:30', '08:30', 'Family'], ['Office work', '09:00', '12:00', 'Extra'], ['Dentist visit', '10:00', '11:00', 'Family'], ['Coffee with friends', '15:00', '16:30', 'Friends'], ['Book club', '19:30', '21:00', 'Friends'], ['Hair salon', '14:00', '15:30', 'Family'], ['Cooking class', '14:00', '15:30', 'Class'], ['Meal prep', '17:00', '18:00', 'Family'], ['Visit grandma', '16:00', '18:00', 'Family'], ['Budget planning', '20:00', '20:45', 'Extra'], ['Skincare and rest', '21:00', '21:30', 'Family']],
+  teacher: [['Class prep', '07:00', '08:00', 'Class'], ['Teach Grade 12 Math', '08:30', '10:00', 'Class'], ['Teach Grade 11 Physics', '10:15', '11:45', 'Class'], ['Staff meeting', '13:00', '14:00', 'Extra'], ['Office hours', '14:00', '15:00', 'Class'], ['Grade papers', '20:00', '21:30', 'Exam'], ['Exam invigilation', '08:00', '10:00', 'Exam'], ['Training workshop', '09:00', '11:00', 'Extra'], ['Parent calls', '16:30', '17:30', 'Family'], ['Library duty', '12:00', '13:00', 'Extra'], ['Mentoring session', '15:30', '16:30', 'Class'], ['Lesson planning', '20:00', '21:00', 'Class']]
+};
+const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const dKey = d => key(d.getFullYear(), d.getMonth(), d.getDate());
+function seedWeekly() {
+  const t = new Date(), mon = addDays(t, -((t.getDay() + 6) % 7)), to = addDays(t, 180);
+  let from = addDays(mon, -28);
+  if (data.seedTo) { const [y, m, d] = data.seedTo.split('-').map(Number); from = new Date(y, m - 1, d + 1); }
+  for (let d = from; d <= to; d = addDays(d, 1)) {
+    const k = dKey(d);
+    (WEEK[d.getDay()] || []).forEach(([start, end, title, kind, who, act]) => {
+      const list = (data.events[k] = data.events[k] || []), id = start + title;
+      if (!list.some(v => v.seed === id)) list.push({ start, end, title, kind, who, act, seed: id });
+    });
+  }
+  data.seedTo = dKey(to);
+}
+function topUpPeople() {
+  data.people = data.people || {};
+  const t = new Date(), today = dKey(t);
+  Object.keys(POOL).forEach(u => {
+    const list = data.people[u] = (data.people[u] || []).filter(p => p.k >= today);
+    for (let guard = 0; list.length < 11 && guard < 400; guard++) {
+      const k = dKey(addDays(t, Math.floor(Math.random() * 14)));
+      const [title, start, end, kind] = POOL[u][Math.floor(Math.random() * POOL[u].length)];
+      const s = toMin(start), e = toMin(end);
+      const clash = list.some(p => p.k === k && (p.title === title || (toMin(p.start) < e && s < toMin(p.end))))
+        || (data.events[k] || []).some(v => v.who === u && toMin(st(v)) < e && s < (toMin(v.end) ?? toMin(st(v)) + 60));
+      if (!clash) list.push({ k, start, end, title, kind });
+    }
+  });
+}
+function agendaFor(u) {
+  const items = [], t = new Date();
+  for (let i = 0; i < 14; i++) {
+    const d = addDays(t, i), k = dKey(d);
+    (data.events[k] || []).forEach(v => { if (v.who === u) items.push({ k, d, s: st(v), en: v.end, kind: kd(v), annie: true, text: v.act || ((u === 'teacher' ? 'Teach: ' : 'Support Annie: ') + v.title) }); });
+    ((data.people || {})[u] || []).forEach(p => { if (p.k === k) items.push({ k, d, s: p.start, en: p.end, kind: p.kind, annie: false, text: p.title }); });
+  }
+  return items.sort((a, b) => a.k.localeCompare(b.k) || a.s.localeCompare(b.s));
+}
+function renderAgenda() {
+  const items = agendaFor(cur), box = $('#agenda'), today = todayKey();
+  $('#agTitle').textContent = 'Your schedule, next 14 days';
+  if (!items.length) { box.innerHTML = `<p class='empty'>Nothing planned.</p>`; return; }
+  let h = '', last = '';
+  items.forEach(x => {
+    if (x.k !== last) { if (last) h += '</div>'; last = x.k; h += `<div class='rem-day'><h3>${x.k === today ? 'Today' : x.d.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' })}</h3>`; }
+    h += `<div class='rem-item ${x.kind}'><b>${esc(x.s)}${x.en ? '–' + esc(x.en) : ''}</b><span>${esc(x.text)}</span><span class='pill'>${x.annie ? 'For Annie' : 'Mine'}</span></div>`;
+  });
+  box.innerHTML = h + '</div>';
+}
+/* ===== family memo board (Annie, Mom, Dad). A note is only shown to its author and the people tagged. ===== */
+const MEMBERS = ['annie', 'mom', 'dad'];
+const PERSON = { annie: ['🐱', 'Annie'], mom: ['👩', 'Mom'], dad: ['👨', 'Dad'] };
+const pn = u => PERSON[u][1];
+const COLORS = ['#fff3a8', '#ffc4d9', '#c9ecff', '#cdf5d3', '#e6d4ff'];
+const NOTES = [
+  ['mom', ['annie'], 'Con nhớ mang áo khoác khi đi học Toán nhé, tối trời lạnh đó.'],
+  ['dad', ['annie'], 'Chiều thứ Sáu ba đón con sau buổi Logiscool lúc 17h nha.'],
+  ['mom', ['annie'], 'Mẹ để vitamin trên bàn bếp, con nhớ uống sau bữa tối nhé.'],
+  ['mom', ['annie', 'dad'], 'Cuối tuần này cả nhà ăn tối ở nhà bà ngoại, con sắp xếp thời gian nhé!'],
+  ['dad', ['annie'], 'Ba chuyển học phí tháng này rồi, con nhắn lại cô giáo giúp ba nha.'],
+  ['mom', ['annie'], 'Trước buổi học thêm Lý, con ôn lại bài cũ một chút nha.'],
+  ['mom', ['annie'], 'Đừng thức quá 23h30 nhé con, sáng mai còn đi học sớm.'],
+  ['dad', ['annie'], 'Chìa khóa dự phòng ba để trong hộp thư, nhớ khóa cửa khi ra ngoài.'],
+  ['mom', ['annie'], 'Canh sườn mẹ nấu để trong tủ lạnh, con hâm lại ăn tối nhé ♥'],
+  ['dad', ['annie', 'mom'], 'Thứ Bảy này cả nhà đi siêu thị, con muốn mua gì thì ghi lại nha.'],
+  ['mom', ['annie', 'dad'], 'In đề cương ĐGNL trước thứ Sáu để ba mẹ xem giúp con nhé.'],
+  ['dad', ['annie', 'mom'], 'Ba mẹ rất tự hào về con, cố lên nhé! 💗']
+];
+function seedMemos() {
+  if (data.memosSeeded) return;
+  const pick = NOTES.slice().sort(() => Math.random() - .5).slice(0, 10);
+  data.memos = (data.memos || []).concat(pick.map(([from, to, text], i) => ({
+    id: 'seed' + i + Date.now().toString(36), from, to, text,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)], r: +(Math.random() * 6 - 3).toFixed(1),
+    ts: Date.now() - Math.floor(Math.random() * 72 * 36e5), done: {}
+  })));
+  data.memosSeeded = true;
+}
+const memoById = id => (data.memos || []).find(m => m.id === id);
+const isDone = m => m.from === cur ? m.to.every(u => m.done && m.done[u]) : !!(m.done && m.done[cur]);
+const mine = () => (data.memos || []).filter(m => m.from === cur || m.to.includes(cur)).sort((a, b) => b.ts - a.ts);
+const when = ts => new Date(ts).toLocaleString(undefined, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+function updateBoardBadge() {
+  const n = (data.memos || []).filter(m => m.to.includes(cur) && !(m.done && m.done[cur])).length;
+  $('#boardBtn').textContent = '📌' + (n ? ' ' + n : '');
+  $('#famBoard').textContent = '📌 Family Board' + (n ? ' (' + n + ')' : '');
+}
+function renderBoard(newId) {
+  const all = mine(), act = all.filter(m => !isDone(m)), fin = all.filter(isDone);
+  $('#cork').innerHTML = act.length ? act.map(m => `<article class='nt' data-id='${m.id}' style='--nc:${m.color};--r:${m.r}deg'>
+    <div class='nt-h'><b>${PERSON[m.from][0]} From ${pn(m.from)}</b><span>to ${m.to.map(pn).join(', ')}</span></div>
+    <p>${esc(m.text)}</p>
+    <div class='nt-f'><small>${when(m.ts)}</small>${m.from === cur
+      ? `<span>${m.to.map(u => pn(u) + (m.done && m.done[u] ? ' ✓' : ' …')).join(' · ')}</span><button class='x' data-del='${m.id}' title='Remove this note'>🗑</button>`
+      : `<button class='dn' data-done='${m.id}'>✓ Done</button>`}</div>
+  </article>`).join('') : `<p class='empty-c'>No notes for you right now ♥</p>`;
+  $('#mDoneSum').textContent = 'Completed (' + fin.length + ')';
+  $('#mDone').innerHTML = fin.length ? fin.map(m => `<div class='dn-row'><s>${esc(m.text)}</s><small>${pn(m.from)} → ${m.to.map(pn).join(', ')}</small>${m.from !== cur ? `<button data-undo='${m.id}' title='Stick it back'>↩</button>` : ''}</div>`).join('') : `<p class='empty'>Nothing completed yet.</p>`;
+  if (newId) { const el = $('#cork').querySelector(`[data-id='${newId}']`); if (el) el.classList.add('drop'); }
+  updateBoardBadge();
+}
+function openBoard() {
+  if (locked || !MEMBERS.includes(cur)) return;
+  $('#mTags').innerHTML = MEMBERS.filter(u => u !== cur).map(u => `<label class='tg'><input type='checkbox' value='${u}'><span>${PERSON[u][0]} ${pn(u)}</span></label>`).join('');
+  $('#mColors').innerHTML = COLORS.map((c, i) => `<label class='sw'><input type='radio' name='mc' value='${c}'${i ? '' : ' checked'}><i style='background:${c}'></i></label>`).join('');
+  $('#mForm').hidden = true; $('#mMsg').textContent = '';
+  $('#memo').hidden = false; document.body.classList.add('gaming'); renderBoard();
+}
+function closeBoard() {
+  if ($('#memo').hidden) return;
+  $('#memo').hidden = true; document.body.classList.remove('gaming'); updateBoardBadge();
+}
+function rip() {
+  if (!audio()) return;
+  const n = Math.floor(actx.sampleRate * .3), buf = actx.createBuffer(1, n, actx.sampleRate), ch = buf.getChannelData(0);
+  for (let i = 0; i < n; i++) ch[i] = (Math.random() * 2 - 1) * (1 - i / n);
+  const s = actx.createBufferSource(), f = actx.createBiquadFilter(), g = actx.createGain();
+  s.buffer = buf; f.type = 'bandpass'; f.frequency.value = 2200; g.gain.value = .25;
+  s.connect(f); f.connect(g); g.connect(actx.destination); s.start();
+}
+function tearNote(el, after) {
+  const cork = $('#cork'); rip();
+  ['tl', 'tr'].forEach(c => {
+    const n = el.cloneNode(true); n.classList.add('half', c); n.classList.remove('drop');
+    n.querySelectorAll('button').forEach(b => b.remove());
+    Object.assign(n.style, { left: el.offsetLeft + 'px', top: el.offsetTop + 'px', width: el.offsetWidth + 'px', height: el.offsetHeight + 'px' });
+    cork.appendChild(n);
+  });
+  el.style.visibility = 'hidden';
+  setTimeout(after, 900);
+}
+$('#cork').addEventListener('click', e => {
+  const d = e.target.closest('[data-done]'), x = e.target.closest('[data-del]'), b = d || x;
+  if (!b || b.disabled) return;
+  b.disabled = true;
+  const id = b.dataset.done || b.dataset.del;
+  tearNote(b.closest('.nt'), () => {
+    if (d) { const m = memoById(id); if (m) { m.done = m.done || {}; m.done[cur] = Date.now(); } $('#mMsg').textContent = 'Done! The note was torn down and moved to Completed ✓'; }
+    else data.memos = data.memos.filter(m => m.id !== id);
+    save(); renderBoard();
+  });
+});
+$('#mDone').addEventListener('click', e => {
+  const b = e.target.closest('[data-undo]'); if (!b) return;
+  const m = memoById(b.dataset.undo); if (m && m.done) delete m.done[cur];
+  save(); renderBoard(m && m.id);
+});
+$('#mForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const text = $('#mText').value.trim(), to = [...document.querySelectorAll('#mTags input:checked')].map(i => i.value);
+  const color = (document.querySelector('#mColors input:checked') || {}).value || COLORS[0];
+  if (!text) { $('#mErr').textContent = 'Write something first.'; return; }
+  if (!to.length) { $('#mErr').textContent = 'Tag at least one person.'; return; }
+  const m = { id: 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), from: cur, to, text, color, r: +(Math.random() * 6 - 3).toFixed(1), ts: Date.now(), done: {} };
+  (data.memos = data.memos || []).push(m); save();
+  $('#mText').value = ''; $('#mErr').textContent = ''; $('#mForm').hidden = true;
+  $('#mMsg').textContent = 'Stuck! Only ' + to.map(pn).join(' and ') + ' can see it.';
+  renderBoard(m.id);
+  if (audio()) [880, 1320].forEach((f, i) => tone(f, i * .08, .12, .1));
+});
+$('#mNew').onclick = () => { const f = $('#mForm'); f.hidden = !f.hidden; $('#mErr').textContent = ''; if (!f.hidden) $('#mText').focus(); };
+$('#mCancel').onclick = () => { $('#mForm').hidden = true; };
+$('#mClose').onclick = closeBoard;
+$('#boardBtn').onclick = openBoard;
+$('#famBoard').onclick = openBoard;
+$('#memo').addEventListener('click', e => { if (e.target.id === 'memo') closeBoard(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#memo').hidden) closeBoard(); });
+/* ===== ColorSpin: match the glowing tile; the right color block makes the cat jump ===== */
+const PAL = [['#ff6b81', '●'], ['#ffb35c', '▲'], ['#ffe066', '■'], ['#6bdc8b', '◆'], ['#6ec1ff', '★'], ['#b58cff', '♥']];
+let cs = null, csLevel = 1, csScore = 0, csStreak = 0, csBest = 0, csYaw = 0, csBusy = false;
+try { csBest = +localStorage.getItem('timetable-colorspin') || 0; } catch (e) {}
+function spiralPath(n) {
+  const out = []; let t = 0, b = n - 1, l = 0, r = n - 1;
+  while (t <= b && l <= r) {
+    for (let x = l; x <= r; x++) out.push([x, t]); t++;
+    for (let y = t; y <= b; y++) out.push([r, y]); r--;
+    if (t <= b) { for (let x = r; x >= l; x--) out.push([x, b]); b--; }
+    if (l <= r) { for (let y = b; y >= t; y--) out.push([l, y]); l++; }
+  }
+  return out;
+}
+function csFace() {
+  const a = cs.path[cs.i], b = cs.path[Math.min(cs.i + 1, cs.path.length - 1)];
+  if (a === b) return;
+  const h = Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI, t = -90 - h;
+  csYaw += ((((t - csYaw + 180) % 360) + 360) % 360) - 180;
+}
+function csApply() {
+  const S = cs.S, [x, y] = cs.path[cs.i], hw = S * 1.25, hh = hw * 115 / 160, hero = $('#csHero');
+  $('#csBoard').style.transform = `rotateX(58deg) rotateZ(${csYaw}deg)`;
+  Object.assign(hero.style, { width: hw + 'px', height: hh + 'px', left: (x * S + S / 2 - hw / 2) + 'px', top: (y * S + S / 2 - hh) + 'px', transform: `translateZ(${cs.H}px) rotateZ(${-csYaw}deg) rotateX(-58deg)` });
+  document.querySelectorAll('#csBoard .tile').forEach(t => t.classList.toggle('next', +t.dataset.j === cs.i + 1));
+  $('#csInfo').textContent = `Level ${csLevel} · step ${cs.i}/${cs.path.length - 1}`;
+}
+function csStats() {
+  if (csScore > csBest) { csBest = csScore; try { localStorage.setItem('timetable-colorspin', csBest); } catch (e) {} }
+  $('#csScore').textContent = 'Score ' + csScore;
+  $('#csStreak').textContent = csStreak > 1 ? '🔥 ' + csStreak : '';
+  $('#csBest').textContent = 'Best ' + csBest;
+}
+function csRound() {
+  const want = cs.col[cs.i + 1];
+  const others = [...Array(cs.ncol).keys()].filter(c => c !== want).sort(() => Math.random() - .5).slice(0, 2);
+  const opts = [want, ...others].sort(() => Math.random() - .5);
+  $('#csChoices').innerHTML = opts.map((c, k) => `<button class='cb' data-ci='${c}' style='--c:${PAL[c][0]}' aria-label='Color block ${k + 1}'>${PAL[c][1]}</button>`).join('');
+  $('#csMsg').textContent = 'Match the glowing tile!';
+}
+function csStart() {
+  const n = Math.min(8, 4 + csLevel), S = Math.min(64, Math.floor(300 / n)), H = Math.round(S * .3), ncol = Math.min(6, 3 + csLevel), path = spiralPath(n);
+  cs = { n, S, H, ncol, path, col: path.map(() => Math.floor(Math.random() * ncol)), i: 0 };
+  const b = $('#csBoard');
+  b.style.cssText = `width:${n * S}px;height:${n * S}px;--s:${S}px;--h:${H}px;transition:none`;
+  b.innerHTML = path.map(([x, y], j) => `<div class='tile' data-j='${j}' style='left:${x * S}px;top:${y * S}px;width:${S}px;height:${S}px;--c:${PAL[cs.col[j]][0]}'><i class='top'>${j === path.length - 1 ? '🏁' : PAL[cs.col[j]][1]}</i><i class='sf'></i><i class='sb'></i><i class='sr'></i><i class='sl'></i></div>`).join('') + `<div class='hero' id='csHero'><div class='hop'></div></div>`;
+  $('#csHero .hop').appendChild($('#petBox svg').cloneNode(true));
+  csBusy = false; csFace();
+  const target = csYaw; csYaw = target + 360; csApply();
+  void b.offsetWidth; b.style.transition = ''; csYaw = target; csApply();
+  csRound(); csStats();
+}
+function csWin() {
+  csScore += 50; csStats(); csBusy = true;
+  $('#csMsg').textContent = '🎉 Level ' + csLevel + ' complete! +50';
+  $('#csChoices').innerHTML = `<button class='fb' id='csNext'>Next level ▶</button>`;
+  chime(); burst($('#csHero'));
+}
+function csPick(c) {
+  if (csBusy || !cs || cs.i >= cs.path.length - 1) return;
+  const hero = $('#csHero');
+  if (c !== cs.col[cs.i + 1]) {
+    csStreak = 0; csStats();
+    $('#csMsg').textContent = 'Not that color, try again!';
+    hero.classList.add('bad'); const sc = $('#csScene'); sc.classList.remove('shake'); void sc.offsetWidth; sc.classList.add('shake');
+    setTimeout(() => hero.classList.remove('bad'), 700);
+    if (audio()) tone(180, 0, .22, .12);
+    return;
+  }
+  csBusy = true; csStreak++; csScore += 10 + Math.min(csStreak, 10); csStats();
+  cs.i++; csFace(); hero.classList.add('hopping'); csApply();
+  if (audio()) [520, 700, 880].forEach((f, k) => tone(f, k * .07, .12, .1));
+  setTimeout(() => { hero.classList.remove('hopping'); csBusy = false; if (cs.i >= cs.path.length - 1) csWin(); else csRound(); }, 700);
+}
+function openCs() {
+  if (locked || viewer !== 'me') return;
+  $('#cs').hidden = false; document.body.classList.add('gaming');
+  if (!cs) csStart();
+}
+function closeCs() {
+  if ($('#cs').hidden) return;
+  $('#cs').hidden = true; document.body.classList.remove('gaming');
+}
+$('#csChoices').addEventListener('click', e => {
+  const b = e.target.closest('.cb');
+  if (b) return csPick(+b.dataset.ci);
+  if (e.target.closest('#csNext')) { csLevel++; csStart(); }
+});
+$('#csNew').onclick = () => { csLevel = 1; csScore = 0; csStreak = 0; csStart(); };
+$('#csBtn').onclick = openCs;
+$('#csClose').onclick = closeCs;
+$('#cs').addEventListener('click', e => { if (e.target.id === 'cs') closeCs(); });
+addEventListener('keydown', e => {
+  if ($('#cs').hidden) return;
+  if (e.key === 'Escape') return closeCs();
+  const k = +e.key;
+  if (k >= 1 && k <= 3) { const b = $('#csChoices').querySelectorAll('.cb')[k - 1]; if (b) csPick(+b.dataset.ci); }
+});
+seedMemos(); seedWeekly(); topUpPeople(); save();
 showLock();
 renderCal();
 renderRem();
